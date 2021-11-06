@@ -8,11 +8,11 @@
     Left="0" Top="0" Topmost="True" Foreground="White" KeyUp="Window_KeyUp" >
     <Grid Margin="8,8,8,8">
         <Label x:Name="display" Content="3" FontSize="96" FontWeight="Bold" Foreground="#FFBEFF00" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="209" Margin="0,3,0,0"/>
-        <CheckBox x:Name="UseGlobalHook" Content="Use global keyboard hook" Foreground="White" Margin="0,139,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190" Checked="UseGlobalHook_Checked" Unchecked="UseGlobalHook_Unchecked" />
-        <Button Content="-" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" Width="42" Height="50" FontFamily="Verdana" FontSize="30" Click="Button_Minus" Foreground="Black" Background="#FFDCA2A2"/>
-        <Button Content="+" HorizontalAlignment="Left" Margin="160,51,0,0" VerticalAlignment="Top" Width="40" Height="50" FontFamily="Verdana" FontSize="30" Click="Button_Plus" Foreground="Black" Background="#FFA0E2A6"/>
-        <Button Content="New game" VerticalAlignment="Top" Click="Button_Reset" Margin="0,2,0,0" Height="24" HorizontalAlignment="Left" Width="77" Background="#FFE4F0C7"/>
+        <CheckBox x:Name="UseGlobalHook" Content="Use global keyboard hook" Foreground="White" Margin="0,139,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190" Checked="UseGlobalHook_Checked" Unchecked="UseGlobalHook_Unchecked" Focusable="False" />
+        <Button Content="-" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" Width="42" Height="50" FontFamily="Verdana" FontSize="30" Click="Button_Minus" Foreground="Black" Background="#FFDCA2A2" Focusable="False"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="160,51,0,0" VerticalAlignment="Top" Width="40" Height="50" FontFamily="Verdana" FontSize="30" Click="Button_Plus" Foreground="Black" Background="#FFA0E2A6" Focusable="False"/>
+        <Button Content="New game" VerticalAlignment="Top" Click="Button_Reset" Margin="0,2,0,0" Height="24" HorizontalAlignment="Left" Width="77" Background="#FFE4F0C7" Focusable="False"/>
         <Label x:Name="RoundLabel" Content="Round 1" HorizontalAlignment="Left" Margin="82,0,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
-        <TextBox x:Name="Log" TextChanged="Log_TextChanged" Margin="214,3,0,0" TextWrapping="Wrap" Text="=[ 1 ]=" FontSize="10" ScrollViewer.CanContentScroll="True" IsReadOnly="True" VerticalScrollBarVisibility="Visible" Background="#FF2D2D30" Foreground="#FF00B45A"/>
+        <TextBox x:Name="Log" TextChanged="Log_TextChanged" Margin="214,3,0,0" TextWrapping="Wrap" Text="=[ 1 ]=" FontSize="10" ScrollViewer.CanContentScroll="True" IsReadOnly="True" VerticalScrollBarVisibility="Visible" Background="#FF2D2D30" Foreground="#FF00B45A" Focusable="False"/>
     </Grid>
 </Window>
