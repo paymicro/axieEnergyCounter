@@ -151,7 +151,7 @@ namespace axieEnergyCounter
 
         private void Window_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.IsUp)
+            if (e.IsUp && !globalHooksIsRegistred)
             {
                 switch (e.Key.GetHashCode())
                 {
