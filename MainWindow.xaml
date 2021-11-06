@@ -13,6 +13,6 @@
         <Button Content="+" HorizontalAlignment="Left" Margin="160,51,0,0" VerticalAlignment="Top" Width="40" Height="50" FontFamily="Verdana" FontSize="30" Click="Button_Plus" Foreground="Black" Background="#FFA0E2A6" Focusable="False"/>
         <Button Content="New game" VerticalAlignment="Top" Click="Button_Reset" Margin="0,2,0,0" Height="24" HorizontalAlignment="Left" Width="77" Background="#FFE4F0C7" Focusable="False"/>
         <Label x:Name="RoundLabel" Content="Round 1" HorizontalAlignment="Left" Margin="82,0,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
-        <TextBox x:Name="Log" TextChanged="Log_TextChanged" Margin="214,3,0,0" TextWrapping="Wrap" Text="=[ 1 ]=" FontSize="10" ScrollViewer.CanContentScroll="True" IsReadOnly="True" VerticalScrollBarVisibility="Visible" Background="#FF2D2D30" Foreground="#FF00B45A" Focusable="False"/>
+        <TextBox x:Name="Log" TextChanged="Log_TextChanged" Margin="214,3,0,0" TextWrapping="Wrap" FontSize="10" ScrollViewer.CanContentScroll="True" IsReadOnly="True" VerticalScrollBarVisibility="Visible" Background="#FF2D2D30" Foreground="#FF00B45A" Focusable="False"/>
     </Grid>
 </Window>
