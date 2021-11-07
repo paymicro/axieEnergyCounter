@@ -4,15 +4,59 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Axie Energy Counter" MinHeight="210" MinWidth="400" Height="210" Width="315" Background="#AA000000" WindowStartupLocation="Manual" 
-    Left="0" Top="0" Topmost="True" Foreground="White" KeyUp="Window_KeyUp" >
-    <Grid Margin="8,8,8,8">
+        Title="Axie Energy Counter" MinHeight="214" MinWidth="234" Height="155.776" Width="360" Background="#FF1D1D1D" Topmost="True" Foreground="White" KeyUp="Window_KeyUp" Icon="mainIcon.png" >
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Click">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard Name="MyBeginStoryboard">
+                            <Storyboard >
+                                <DoubleAnimation 
+                                    Storyboard.TargetName="myRectangle" 
+                                    Storyboard.TargetProperty="Width" 
+                                    Duration="0:0:5" From="100" To="500" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="4,4,4,4">
+        <Button Content="New game" VerticalAlignment="Top" Click="Button_Reset" Margin="0,2,0,0" Height="24" HorizontalAlignment="Left" Width="77" Background="#FFB9B9B9" Focusable="False">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label x:Name="RoundLabel" Content="=[ Round 1 ]=" HorizontalAlignment="Left" Margin="82,0,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
         <Label x:Name="display" Content="3" FontSize="96" FontWeight="Bold" Foreground="#FFBEFF00" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="209" Margin="0,3,0,0"/>
-        <CheckBox x:Name="UseGlobalHook" Content="Use global keyboard hook" Foreground="White" Margin="0,139,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190" Checked="UseGlobalHook_Checked" Unchecked="UseGlobalHook_Unchecked" Focusable="False" />
-        <Button Content="-" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" Width="42" Height="50" FontFamily="Verdana" FontSize="30" Click="Button_Minus" Foreground="Black" Background="#FFDCA2A2" Focusable="False"/>
-        <Button Content="+" HorizontalAlignment="Left" Margin="160,51,0,0" VerticalAlignment="Top" Width="40" Height="50" FontFamily="Verdana" FontSize="30" Click="Button_Plus" Foreground="Black" Background="#FFA0E2A6" Focusable="False"/>
-        <Button Content="New game" VerticalAlignment="Top" Click="Button_Reset" Margin="0,2,0,0" Height="24" HorizontalAlignment="Left" Width="77" Background="#FFE4F0C7" Focusable="False"/>
-        <Label x:Name="RoundLabel" Content="Round 1" HorizontalAlignment="Left" Margin="82,0,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
-        <TextBox x:Name="Log" TextChanged="Log_TextChanged" Margin="214,3,0,0" TextWrapping="Wrap" FontSize="10" ScrollViewer.CanContentScroll="True" IsReadOnly="True" VerticalScrollBarVisibility="Visible" Background="#FF2D2D30" Foreground="#FF00B45A" Focusable="False"/>
+        <Button HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Verdana" FontSize="30" Click="Button_Minus" Foreground="White" Background="#FFE50014" Focusable="False" BorderThickness="0,0,1,1">
+            <TextBlock Text="_" Margin="-1,-29,0,0"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="50"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="155,50,0,0" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Verdana" FontSize="30" Click="Button_Plus" Foreground="White" Background="#FF5BA82F" Focusable="False" BorderThickness="0,0,1,1">
+            <TextBlock Text="+" Margin="1,-5,0,0"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="50"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBox x:Name="Log" TextChanged="Log_TextChanged" Margin="214,3,0,0" TextWrapping="Wrap" FontSize="11" ScrollViewer.CanContentScroll="True" IsReadOnly="True" VerticalScrollBarVisibility="Visible" Background="#FF2D2D30" Foreground="#FF00B45A" Focusable="False"/>
+        <Button Content="Next round" VerticalAlignment="Top" Click="Button_Reset" Margin="39,129,0,0" Height="24" HorizontalAlignment="Left" Width="127" Background="#FFB9B9B9" Focusable="False">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <CheckBox x:Name="UseGlobalHook" Content="Use global keyboard hook" Foreground="White" Margin="0,185,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190" Checked="UseGlobalHook_Checked" Unchecked="UseGlobalHook_Unchecked" Focusable="False" />
     </Grid>
 </Window>
