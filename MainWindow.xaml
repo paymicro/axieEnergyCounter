@@ -4,26 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Axie Energy Counter" MinHeight="214" MinWidth="234" Height="155.776" Width="360" Background="#FF1D1D1D" Topmost="True" Foreground="White" KeyUp="Window_KeyUp" Icon="mainIcon.png" >
-    <Window.Resources>
-        <Style TargetType="{x:Type Button}">
-            <Style.Triggers>
-                <EventTrigger RoutedEvent="Click">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard Name="MyBeginStoryboard">
-                            <Storyboard >
-                                <DoubleAnimation 
-                                    Storyboard.TargetName="myRectangle" 
-                                    Storyboard.TargetProperty="Width" 
-                                    Duration="0:0:5" From="100" To="500" />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Resources>
+        Title="Axie Energy Counter" MinHeight="214" MinWidth="234" Height="155.776" Width="360" Background="#FF1D1D1D" Topmost="True" Foreground="White" KeyUp="Window_KeyUp" Icon="mainIcon.ico" >
     <Grid Margin="4,4,4,4">
+        <Label x:Name="RoundLabel" Content="=[ Round 1 ]=" HorizontalAlignment="Left" Margin="82,0,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+        <Label x:Name="display" Content="3" FontSize="96" FontWeight="Bold" Foreground="#FFBEFF00" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="209" Margin="0,3,0,0"/>
         <Button Content="New game" VerticalAlignment="Top" Click="Button_Reset" Margin="0,2,0,0" Height="24" HorizontalAlignment="Left" Width="77" Background="#FFB9B9B9" Focusable="False">
             <Button.Resources>
                 <Style TargetType="Border">
@@ -31,18 +15,54 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label x:Name="RoundLabel" Content="=[ Round 1 ]=" HorizontalAlignment="Left" Margin="82,0,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
-        <Label x:Name="display" Content="3" FontSize="96" FontWeight="Bold" Foreground="#FFBEFF00" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="209" Margin="0,3,0,0"/>
-        <Button HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Verdana" FontSize="30" Click="Button_Minus" Foreground="White" Background="#FFE50014" Focusable="False" BorderThickness="0,0,1,1">
+        <Button HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Verdana" FontSize="30" Click="Button_Minus" Foreground="White" Focusable="False" BorderThickness="0,0,1,1">
             <TextBlock Text="_" Margin="-1,-29,0,0"/>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#FFE50014"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="DarkRed"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="50"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="155,50,0,0" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Verdana" FontSize="30" Click="Button_Plus" Foreground="White" Background="#FF5BA82F" Focusable="False" BorderThickness="0,0,1,1">
+        <Button HorizontalAlignment="Left" Margin="155,50,0,0" VerticalAlignment="Top" Width="50" Height="50" FontFamily="Verdana" FontSize="30" Click="Button_Plus" Foreground="White" Focusable="False" BorderThickness="0,0,1,1">
             <TextBlock Text="+" Margin="1,-5,0,0"/>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#FF5BA82F"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="DarkGreen"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="50"/>
@@ -50,7 +70,7 @@
             </Button.Resources>
         </Button>
         <TextBox x:Name="Log" TextChanged="Log_TextChanged" Margin="214,3,0,0" TextWrapping="Wrap" FontSize="11" ScrollViewer.CanContentScroll="True" IsReadOnly="True" VerticalScrollBarVisibility="Visible" Background="#FF2D2D30" Foreground="#FF00B45A" Focusable="False"/>
-        <Button Content="Next round" VerticalAlignment="Top" Click="Button_Reset" Margin="39,129,0,0" Height="24" HorizontalAlignment="Left" Width="127" Background="#FFB9B9B9" Focusable="False">
+        <Button Content="Next round" VerticalAlignment="Top" Click="Button_NextRound" Margin="39,129,0,0" Height="24" HorizontalAlignment="Left" Width="127" Background="#FFB9B9B9" Focusable="False">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>

@@ -102,5 +102,10 @@ namespace axieEnergyCounter
         {
             logic.UnregisterHotKeys();
         }
+
+        void Button_NextRound(object sender, RoutedEventArgs e)
+        {
+            logic.NextRound();
+        }
     }
 }
